@@ -1,75 +1,89 @@
-<nav class="navbar navbar-light">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/">conduit</a>
-
-    <!-- Show this for logged out users -->
-    <ul *appShowAuthed="false"
-      class="nav navbar-nav pull-xs-right">
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/">
-          Home
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/login"
-          routerLinkActive="active">
-          Sign in
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/register"
-          routerLinkActive="active">
-          Sign up
-        </a>
-      </li>
-
-    </ul>
-
-    <!-- Show this for logged in users -->
-    <ul *appShowAuthed="true"
-      class="nav navbar-nav pull-xs-right">
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }">
-          Home
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/editor"
-          routerLinkActive="active">
-          <i class="ion-compose"></i>&nbsp;New Article
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          routerLink="/settings"
-          routerLinkActive="active">
-          <i class="ion-gear-a"></i>&nbsp;Settings
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link"
-          [routerLink]="['/profile', currentUser.username]"
-          routerLinkActive="active">
-          <img [src]="currentUser.image" *ngIf="currentUser.image" class="user-pic" />
-          {{ currentUser.username }}
-        </a>
-      </li>
-
-    </ul>
-
+<!--START TOP AREA-->
+<header class="top-area" id="home" [ngClass]="{ 'single-page': router.url !== '/' }">
+  <div class="top-area-bg" data-stellar-background-ratio="0.6"></div>
+  <div class="header-top-area">
+    <!--MAINMENU AREA-->
+    <div class="mainmenu-area" id="mainmenu-area">
+      <div class="mainmenu-area-bg"></div>
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="#home" class="navbar-brand"><img src="../assets/img/logo.png" alt="logo"></a>
+          </div>
+          <div class="search-and-language-bar pull-right">
+            <ul>
+              <li><a href="#"><i class="fa fa-user"></i></a></li>
+              <li class="search-box"><i class="fa fa-search"></i></li>
+              <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
+              <li class="select-language">
+                <select name="#" id="#">
+                  <option selected value="End">ENG</option>
+                  <option value="ARA">ARA</option>
+                  <option value="CHI">CHI</option>
+                </select>
+              </li>
+            </ul>
+            <form action="#" class="search-form">
+              <input type="search" name="search" id="search">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+          </div>
+          <div id="main-nav" class="stellarnav">
+            <ul id="nav" class="nav navbar-nav">
+              <li><a routerLink="/">home</a>
+              </li>
+              <li><a routerLink="/about">about</a>
+              </li>
+              <li><a routerLink="/">Service</a>
+              </li>
+              <li><a routerLink="/">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!--END MAINMENU AREA END-->
   </div>
-</nav>
+  <!--HOME SLIDER AREA-->
+  <div class="welcome-slider-area" *ngIf="router.url === '/'">
+    <div class="welcome-single-slide slider-bg-two">
+      <div class="container">
+        <div class="row flex-v-center">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="welcome-text text-center">
+              <h1>WE MAKE STRONGEST SERVICE ABOVE THE WORLD</h1>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              <div class="home-button">
+                <a href="#">Our Service</a>
+                <a href="#">Get A Quate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--END HOME SLIDER AREA-->
+  <div class="welcome-area" *ngIf="router.url !== '/'">
+    <div class="area-bg"></div>
+    <div class="container">
+      <div class="row flex-v-center">
+        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+          <div class="welcome-text text-center">
+            <h2>About Us</h2>
+            <ul class="page-location">
+              <li><a href="#">Home</a></li>
+              <li>/</li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</header>
+<!--END TOP AREA-->

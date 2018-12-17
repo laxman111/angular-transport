@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-import { User, UserService } from '../../core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout-header',
@@ -8,16 +7,9 @@ import { User, UserService } from '../../core';
 })
 export class HeaderComponent implements OnInit {
   constructor(
-    private userService: UserService
+    public router: Router
   ) {}
 
-  currentUser: User;
-
   ngOnInit() {
-    this.userService.currentUser.subscribe(
-      (userData) => {
-        this.currentUser = userData;
-      }
-    );
   }
 }
