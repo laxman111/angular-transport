@@ -8,25 +8,12 @@
       <nav class="navbar">
         <div class="container">
           <div class="navbar-header">
-            <a href="#home" class="navbar-brand"><img src="../assets/img/logo.png" alt="logo"></a>
+            <a routerLink="/" class="navbar-brand"><img src="../assets/img/logo.png" alt="logo"></a>
           </div>
           <div class="search-and-language-bar pull-right">
-            <ul>
-              <li><a href="#"><i class="fa fa-user"></i></a></li>
-              <li class="search-box"><i class="fa fa-search"></i></li>
-              <li><a href="#"><i class="fa fa-shopping-bag"></i></a></li>
-              <li class="select-language">
-                <select name="#" id="#">
-                  <option selected value="End">ENG</option>
-                  <option value="ARA">ARA</option>
-                  <option value="CHI">CHI</option>
-                </select>
-              </li>
-            </ul>
-            <form action="#" class="search-form">
-              <input type="search" name="search" id="search">
-              <button type="submit"><i class="fa fa-search"></i></button>
-            </form>
+            <!-- <ul>
+              <li><a routerLink="/login">login <i class="fa fa-user"></i></a></li>]
+            </ul> -->
           </div>
           <div id="main-nav" class="stellarnav">
             <ul id="nav" class="nav navbar-nav">
@@ -34,9 +21,11 @@
               </li>
               <li><a routerLink="/about">about</a>
               </li>
-              <li><a routerLink="/">Service</a>
+              <li><a routerLink="/track-order">track order</a>
               </li>
-              <li><a routerLink="/">Contact</a>
+              <li><a routerLink="/contact-us">contact</a>
+              </li>
+              <li><a routerLink="/login">login <i class="fa fa-user"></i></a>
               </li>
             </ul>
           </div>
@@ -56,8 +45,8 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
               <div class="home-button">
-                <a href="#">Our Service</a>
-                <a href="#">Get A Quate</a>
+                <a routerLink="/track-order">Track Order</a>
+                <a routerLink="/contact-us">Contact Us</a>
               </div>
             </div>
           </div>
@@ -72,11 +61,11 @@
       <div class="row flex-v-center">
         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
           <div class="welcome-text text-center">
-            <h2>About Us</h2>
+            <h2>{{title}}</h2>
             <ul class="page-location">
-              <li><a href="#">Home</a></li>
+              <li><a routerLink="/">home</a></li>
               <li>/</li>
-              <li><a href="#">About</a></li>
+              <li><a routerLink="{{router.url}}">{{router.url.replace('/', '')}}</a></li>
             </ul>
           </div>
         </div>

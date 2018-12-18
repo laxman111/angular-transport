@@ -12,9 +12,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent, AboutComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent, AboutComponent, LoginComponent, TrackOrderComponent, ContactUsComponent],
   imports: [
     BrowserModule,
     CoreModule,

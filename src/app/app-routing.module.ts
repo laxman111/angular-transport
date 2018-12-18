@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { TrackOrderComponent } from './track-order/track-order.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -11,6 +14,18 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'track-order',
+    component: TrackOrderComponent
+  },
+  {
+    path: 'contact-us',
+    component: ContactUsComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
    
 ];
