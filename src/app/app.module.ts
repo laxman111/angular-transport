@@ -15,9 +15,10 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { TrackOrderComponent } from './track-order/track-order.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent, AboutComponent, LoginComponent, TrackOrderComponent, ContactUsComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, HomeComponent, AboutComponent, LoginComponent, TrackOrderComponent, ContactUsComponent, OrdersComponent],
   imports: [
     BrowserModule,
     CoreModule,

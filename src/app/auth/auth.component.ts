@@ -47,7 +47,7 @@ export class AuthComponent implements OnInit {
 
     const credentials = this.authForm.value;
     this.userService
-    .attemptAuth(this.authType, credentials)
+    .attemptAuth(credentials)
     .subscribe(
       data => this.router.navigateByUrl('/'),
       err => {

@@ -5,6 +5,10 @@
       <div class="col-md-6 offset-md-3 col-xs-12">
         <h1 class="text-xs-center">{{ title }}</h1>
         <app-list-errors [errors]="errors"></app-list-errors>
+        <div *ngIf="errorMessage" class="alert alert-danger alert-dismissible">
+          <a href="login/#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          {{errorMessage}}
+        </div>
         <form [formGroup]="authForm" (ngSubmit)="submitForm()">
           <fieldset [disabled]="isSubmitting">
             <fieldset class="form-group">

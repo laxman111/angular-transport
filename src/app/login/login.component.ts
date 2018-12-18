@@ -1,24 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Errors } from '../core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Errors, UserService } from '../core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
 authType: String = '';
   title: String = '';
   errors: Errors = {errors: {}};
   isSubmitting = false;
+  errorMessage: string;
   authForm: FormGroup;
 
   constructor(
      private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private userService: UserService
   ) {
     // use FormBuilder to create a form group
     this.authForm = this.fb.group({
@@ -42,19 +45,24 @@ authType: String = '';
 
   submitForm() {
     this.isSubmitting = true;
+    this.errorMessage = null;
     this.errors = { errors: {} };
 
     const credentials = this.authForm.value;
-    console.log(credentials)
-    // this.userService
-    //   .attemptAuth(this.authType, credentials)
-    //   .subscribe(
-    //     data => this.router.navigateByUrl('/'),
-    //     err => {
-    //       this.errors = err;
-    //       this.isSubmitting = false;
-    //     }
-    //   );
+    const postData = {
+      username: credentials.email,
+      password: credentials.password
+    }
+    this.userService
+      .attemptAuth(postData)
+      .subscribe(
+        data => this.router.navigateByUrl('/'),
+        err => {
+          this.errors = err;
+          this.errorMessage = err.message;
+          this.isSubmitting = false;
+        }
+      );
   }
 
 }

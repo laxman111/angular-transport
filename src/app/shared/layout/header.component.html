@@ -16,16 +16,24 @@
             </ul> -->
           </div>
           <div id="main-nav" class="stellarnav">
-            <ul id="nav" class="nav navbar-nav">
-              <li><a routerLink="/">home</a>
+            <ul *ngIf="!currentUser" id="nav" class="nav navbar-nav">
+              <li [ngClass]="{ 'active' : router.url == '/' }" ><a routerLink="/">home</a>
               </li>
-              <li><a routerLink="/about">about</a>
+              <li [ngClass]="{ 'active' : router.url == '/about' }" ><a routerLink="/about">about</a>
               </li>
-              <li><a routerLink="/track-order">track order</a>
+              <li [ngClass]="{ 'active' : router.url == '/track-order' }" ><a routerLink="/track-order">track order</a>
               </li>
-              <li><a routerLink="/contact-us">contact</a>
+              <li [ngClass]="{ 'active' : router.url == '/contact-us' }" ><a routerLink="/contact-us">contact</a>
               </li>
-              <li><a routerLink="/login">login <i class="fa fa-user"></i></a>
+              <li [ngClass]="{ 'active' : router.url == '/login' }" ><a routerLink="/login">login <i class="fa fa-user"></i></a>
+              </li>
+            </ul>
+            <ul *ngIf="currentUser" id="nav" class="nav navbar-nav">
+              <li [ngClass]="{ 'active' : router.url == '/' }" ><a routerLink="/">home</a>
+              </li>
+              <li [ngClass]="{ 'active' : router.url == '/orders' }" ><a routerLink="/orders">orders</a>
+              </li>
+              <li [ngClass]="{ 'active' : router.url == '/logout' }" ><a (click)="logoutClick()">logout <i class="fa fa-user"></i></a>
               </li>
             </ul>
           </div>
